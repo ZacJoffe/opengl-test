@@ -83,7 +83,7 @@ fn shader_from_source(source: &CStr, kind: gl::types::GLuint) -> Result<gl::type
             gl::GetShaderInfoLog(id, len, null_mut(), err.as_ptr() as *mut gl::types::GLchar);
         }
 
-        Err(err.to_string_lossy().into_owned())
+        return Err(err.to_string_lossy().into_owned());
     }
 
     Ok(id)
